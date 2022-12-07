@@ -1,14 +1,17 @@
-#Serenity Project
+# Serenity Project
+
+
 Serenity BDD is an open source library that aims to make the idea of living documentation a reality.
 
 Here is the [link](https://serenity-bdd.github.io/theserenitybook/latest/index.html) for simple documentation.
 
-###Steps to Create Project
-1.Create a maven project called `B22SerenityProject`
+### Steps to Create Project
+
+1.Create a maven project called `EU9SerenityProject`
 
 2.under `pom.xml`
     1.add below property section
-```xml 
+``` xml 
 <properties>
 <maven.compiler.source>8</maven.compiler.source>
 <maven.compiler.target>8</maven.compiler.target>
@@ -16,7 +19,7 @@ Here is the [link](https://serenity-bdd.github.io/theserenitybook/latest/index.h
 </properties>
 ```
 3.Add dependencies 
-```xml
+``` xml
 <!--        This is for base support for anything we do with serenity-->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -46,7 +49,7 @@ Here is the [link](https://serenity-bdd.github.io/theserenitybook/latest/index.h
 ```
 
 4.Add Build plugins
-```xml
+``` xml
   <build>
         <plugins>
             <plugin>
@@ -85,7 +88,7 @@ Here is the [link](https://serenity-bdd.github.io/theserenitybook/latest/index.h
         </plugins>
     </build>
 ```
-5.Create a package called `b22` under `src/test/java`
+5.Create a package called `eu9` under `src/test/java`
 1. under b22 create `spartan` and under spartan create `admin` packages
    
 2. create a class called `SpartanAdminGetTest`
@@ -100,9 +103,9 @@ Here is the [link](https://serenity-bdd.github.io/theserenitybook/latest/index.h
 8. Add a properties file with exact name `serenity.properties`
   right under project level
   * add following lines to properties file 
-```properties
-serenity.project.name=B22 API Report
-serenity.test.root=b22
+``` properties
+serenity.project.name=EU9 API Report
+serenity.test.root=eu9
 ```
 9.In order to generate serenity report, we need to use maven goal
 * if you are using command line: `mvn clean verify`  cmd+enter or ctrl+enter if you dont have maven installed locally
@@ -110,8 +113,8 @@ serenity.test.root=b22
     * first click on clean then click on verify
 * your report will be generated under target as HTML Report
 
-10.Thi sis for serenity to pick up log and eliminate the warning
-```xml
+10.This is for serenity to pick up log and eliminate the warning
+``` xml
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-simple</artifactId>
@@ -125,13 +128,13 @@ serenity.test.root=b22
     * From this point on, all details will be picked up by Serenity report, you will see **Rest Query** button on the individual tests
 
 12. The way that assert the response and show it as a steps in Serenity report is using `Ensure` class (from `import net.serenitybdd.rest.Ensure;`)
-```java
+``` java
         Ensure.that("Status code is 200",validatableResponse -> validatableResponse.statusCode(201) );
 
         Ensure.that("Content-type is JSON",vRes -> vRes.contentType(ContentType.JSON));
 
         Ensure.that("Id is 15", vRes -> vRes.body("id",is(15)));
-
+        
 ```
 
 
